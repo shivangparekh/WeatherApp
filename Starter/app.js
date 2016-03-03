@@ -1,3 +1,4 @@
+// UPDATED
 var weatherApp = angular.module ('weatherApp', ['ngRoute', 'ngResource']);
 
 weatherApp.config(function($routeProvider){
@@ -7,6 +8,10 @@ weatherApp.config(function($routeProvider){
        controller: 'homeController'
    })
    .when('/forcast.html',{
+       templateUrl: 'pages/forcast.html',
+       controller: 'forcastController'
+   })
+   .when('/forcast.html/:days',{
        templateUrl: 'pages/forcast.html',
        controller: 'forcastController'
    })
@@ -32,14 +37,15 @@ weatherApp.controller('homeController',['$scope', 'location', function($scope, l
     
 }]);
 
-weatherApp.controller('forcastController',['$scope', '$resource', 'location', function($scope, $resource, location){
+weatherApp.controller('forcastController',['$scope', '$resource', '$routeParams', 'location', function($scope, $resource, $routeParams, location){
     $scope.city = location.city;
     $scope.APPID = '44db6a862fba0b067b1930da0d769e98';
+    $scope.days = ($routeParams.days || 2);
     console.log($scope.APPID);
     console.log($scope.city);
     $scope.weatherApi = $resource("http://api.openweathermap.org/data/2.5/forecast?", {callback: "JSON_CALLBACK"}, {get:{method: "JSONP"}});
     
-    $scope.weatherResult = $scope.weatherApi.get({q:$scope.city, APPID:'44db6a862fba0b067b1930da0d769e98', cnt:2});
+    $scope.weatherResult = $scope.weatherApi.get({q:$scope.city, APPID:'44db6a862fba0b067b1930da0d769e98', cnt:$scope.days});
     console.log($scope.weatherResult);
     $scope.convertToCelcuis = function(degK){
         return Math.round(degK-273.15);    

@@ -1,8 +1,15 @@
 
 <div ng-controller = "forcastController">
-    <h4>Weather Details For : {{city}}</h4>
     
+    <a style="float:right" href="#/">Back To Search!</a>
+    
+    <h4>Weather Details For : {{city}}</h4>
+    <hr>
+     Days Option : <a href ="#forcast.html/2" ng-class = "{'bg-primary': days === '2'}">2</a> | 
+                   <a href ="#forcast.html/5" ng-class = "{'bg-primary': days === '5'}">5</a> | 
+                   <a href ="#forcast.html/7"ng-class = "{'bg-primary': days === '7'}">7</a>
     <div ng-repeat = "w in weatherResult.list">
+       
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
