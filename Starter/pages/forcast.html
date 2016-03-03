@@ -1,0 +1,21 @@
+
+<div ng-controller = "forcastController">
+    <h4>Weather Details For : {{city}}</h4>
+    
+    <div ng-repeat = "w in weatherResult.list">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{convertDate(w.dt) | date:'medium'}}</h3>
+            </div>
+            <div class="panel-body">
+            Daytime Temperature: {{ convertToCelcuis(w.main.temp)}}
+            Humidity: {{ w.main.humidity}}
+           
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
