@@ -4,11 +4,11 @@ weatherApp.config(function($routeProvider){
        templateUrl: 'pages/home.html',
        controller: 'homeController'
    })
-   .when('/forcast.html',{
+   .when('/forcast',{
        templateUrl: 'pages/forcast.html',
        controller: 'forcastController'
    })
-   .when('/forcast.html/:days',{
+   .when('/forcast/:days',{
        templateUrl: 'pages/forcast.html',
        controller: 'forcastController'
    })

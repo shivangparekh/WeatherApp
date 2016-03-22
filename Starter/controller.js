@@ -1,9 +1,10 @@
-weatherApp.controller('homeController',['$scope', 'location', function($scope, location){
+weatherApp.controller('homeController',['$scope', '$location','location', function($scope, $location, location){
     $scope.city = location.city;
     $scope.$watch('city',function(){
        location.city = $scope.city; 
     });
-    $scope.add = function(){
+    $scope.submit = function(){
+        $location.path("/forcast");
     };
     
 }]);

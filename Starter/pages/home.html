@@ -3,14 +3,18 @@
 <div class="row">
   <div class="col-md-30 col-offset-30">
       <h4><i>Forecast By City</i></h4>
-    <div>
+
+        <form ng-submit="submit()">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search for..." ng-model="city">
         <span class="input-group-btn">
-        <a  href="#/forcast.html"><button ng-click="add()" class="btn btn-primary" type="button">Submit!</button></a>
+        <input type="submit" class="btn btn-primary" value="Submit!" />
+       
         </span>
     </div>
-    </div>
+      </form>
+      
+    
   </div>
 </div>
 <br>
